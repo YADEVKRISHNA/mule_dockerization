@@ -1,4 +1,4 @@
-FROM ubuntu:20.09
+
 FROM java:openjdk-8-jdk
 FROM maven:3.6.0-jdk-11-slim 
 
