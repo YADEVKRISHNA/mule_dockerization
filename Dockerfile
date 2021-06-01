@@ -13,7 +13,6 @@ ADD https://mule-runtime.s3.amazonaws.com/mule-ee-distribution-standalone-4.3.0.
 WORKDIR /mule
 RUN echo "<--------------Extracting Mule Engine-------------->"
 RUN unzip mule-ee-distribution-standalone-4.3.0.zip && rm mule-ee-distribution-standalone-4.3.0.zip
-RUN 
 RUN echo "<--------------Packaging mule application and adding to runtime Engine------------->"
 RUN mvn clean -Dskiptests package && mv target/hello-world-1.0.0-SNAPSHOT-mule-application.jar mule-enterprise-standalone-4.3.0/apps/hello-world.jar && rm pom.xml mule-artifact.json -rf target src
 
