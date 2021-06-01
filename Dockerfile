@@ -15,12 +15,12 @@ RUN echo "<--------------Extracting Mule Engine-------------->"
 #RUN unzip mule-ee-distribution-standalone-4.3.0.zip && rm mule-ee-distribution-standalone-4.3.0.zip
 RUN unzip mule-ee-distribution-standalone-4.3.0-20210119.zip && rm mule-ee-distribution-standalone-4.3.0-20210119.zip
 RUN echo "<--------------Packaging mule application and adding to runtime Engine------------->"
-RUN mvn clean -Dskiptests package && mv target/hello-world-1.0.0-SNAPSHOT-mule-application.jar mule-ee-distribution-standalone-4.3.0-20210119/apps/hello-world.jar && rm pom.xml mule-artifact.json -rf target src
+RUN mvn clean -Dskiptests package && mv target/hello-world-1.0.0-SNAPSHOT-mule-application.jar mule-enterprise-standalone-4.3.0-20210119/apps/hello-world.jar && rm pom.xml mule-artifact.json -rf target src
 
 #VOLUME ["/mule/mule-enterprise-standalone-4.3.0/logs", "/mule/mule-enterprise-standalone-4.3.0/apps", "/mule/mule-enterprise-standalone-4.3.0/domains"]
-VOLUME ["/mule/mule-ee-distribution-standalone-4.3.0-20210119/logs", "/mule/mule-ee-distribution-standalone-4.3.0-20210119/apps", "/mule/mule-ee-distribution-standalone-4.3.0-20210119/domains"]
+VOLUME ["/mule/mule-enterprise-standalone-4.3.0-20210119/logs", "/mule/mule-enterprise-standalone-4.3.0-20210119/apps", "/mule/mule-enterprise-standalone-4.3.0-20210119/domains"]
 
 RUN echo "<-------------Exposing port-------------->"
 EXPOSE 8081
-CMD ["./mule-ee-distribution-standalone-4.3.0-20210119/bin/mule"]
+CMD ["./mule-enterprise-standalone-4.3.0-20210119/bin/mule"]
 
